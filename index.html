@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Out of Eden 🍎🐍</title>
+  </head>
+  <body>
+    <header>
+      <h1>Out of Eden 🍎🐍</h1>
+    </header>
+    <main>
+      <canvas id="gameCanvas"></canvas>
+      <div id="startGameDiv" class="gameUI">
+        
+        <img src="" alt="">
+        <p>You have 30 seconds to catch Apples 🍎 for Eve 👩 and Adam 🧑.</p>
+        <img src="/happy.png" alt="">
+        <p>If you catch more than 10 apples, they are expelled of Eden and you win!</p>
+        <p>If you catch less than 10 apples, you lose and they get to stay.</p>
+        <p>Click the Start button to begin!</p>
+        <button id="gameStartButton">Start</button>
+        
+      </div>
+      <div id="endGameDiv" class="gameUI">
+        <p>Game Over!</p>
+        <h1>You <span id="gameWinLoseSpan"></span></h1>
+        <h1>Final Score: <span id="gameEndScoreSpan"></span></h1>
+        <img src="/expelled.jpg" alt="">
+        <p>Refresh the page to play again 😈🔥</p>
+      </div>
+    </main>
+    <footer>
+      <p>Created by Raúl Rodríguez 2024</p>
+    </footer>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
