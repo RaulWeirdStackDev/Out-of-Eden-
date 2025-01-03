@@ -107,3 +107,5 @@ main {
   padding-top: 0;
   background-color: var(--dkCLR);
 }
+
+#videoCont p {font-size: 20px;}
