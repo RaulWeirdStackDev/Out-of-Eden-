@@ -97,3 +97,13 @@ main {
   border: 0.5px solid var(--liClr);
   cursor: pointer;
 }
+
+#videoCont {
+  display: flex;
+  flex-direction: column;
+  border: solid var(--liClr);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  padding-top: 0;
+  background-color: var(--dkCLR);
+}
