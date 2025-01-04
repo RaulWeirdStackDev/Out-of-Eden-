@@ -104,7 +104,7 @@ main {
   border: solid var(--liClr);
   margin-bottom: 10px;
   padding-bottom: 10px;
-  padding-top: 1;
+  padding-top: 0;
   background-color: var(--dkCLR);
 }
 
