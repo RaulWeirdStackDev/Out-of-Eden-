@@ -31,7 +31,7 @@ class GameScene extends Phaser.Scene{
 
   preload(){
     this.load.image("bg", "bg.png")
-    this.load.image("snake", "snake.png")
+    this.load.image("caky", "Caky.png")
     this.load.image("apple", "apple.png")
     this.load.image("devil", "devil.png")
 
@@ -45,7 +45,8 @@ class GameScene extends Phaser.Scene{
     this.bgMusic=this.sound.add("bgMusic")
     //this.bgMusic.play()
     this.add.image(0,0, "bg").setOrigin(0,0)
-    this.player= this.physics.add.image(0,sizes.height-100, "snake").setOrigin(0,0)
+    this.player= this.physics.add.image(0,sizes.height-100, "caky").setOrigin(0,0)
+    this.player.setScale(0.2)
     this.player.setImmovable(true)
     this.player.body.allowGravity = false
     this.player.setCollideWorldBounds(true)
