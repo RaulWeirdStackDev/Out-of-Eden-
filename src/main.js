@@ -38,52 +38,46 @@ class GameScene extends Phaser.Scene{
     this.load.audio("bgMusic", "bgMusic.mp3")
 
   }
-  create(){
-
-    // this.scene.pause("scene-game")
-
-    this.bgMusic=this.sound.add("bgMusic")
-    //this.bgMusic.play()
-    this.add.image(0,0, "bg").setOrigin(0,0)
-    this.player = this.physics.add.image(50, sizes.height - 100, "snake").setOrigin(0, 0)
-    this.player.setScale(1)
-    this.player.setImmovable(true)
-    this.player.body.allowGravity = false
-    this.player.setCollideWorldBounds(true)
-    this.player.setSize(160, 30).setOffset(20, 140);
-
-
-    this.target=this.physics.add
-    .image(0,0,"apple")
-    .setOrigin(0,0);
-    this.target.setMaxVelocity(0, speedDown)
-
-    this.physics.add.overlap(this.target, this.player, this.targetHit, null, this )
-
-    this.cursor=this.input.keyboard.createCursorKeys()
-
-    this.textScore= this.add.text(sizes.width-120, 10, "score:0", {
+  create() {
+    this.bgMusic = this.sound.add("bgMusic");
+    this.add.image(0, 0, "bg").setOrigin(0, 0);
+    
+    this.player = this.physics.add.image(0, sizes.height - 20, "snake").setOrigin(0, 0);
+    this.player.setScale(1);
+    this.player.setImmovable(true);
+    this.player.body.allowGravity = false;
+    this.player.setCollideWorldBounds(true);
+    this.player.setSize(100, 30).setOffset(0, 100); // Reducimos el ancho de la caja de colisión a 100
+  
+    this.target = this.physics.add
+      .image(0, 0, "apple")
+      .setOrigin(0, 0);
+    this.target.setMaxVelocity(0, speedDown);
+  
+    this.physics.add.overlap(this.target, this.player, this.targetHit, null, this);
+  
+    this.cursor = this.input.keyboard.createCursorKeys();
+  
+    this.textScore = this.add.text(sizes.width - 120, 10, "score:0", {
       font: "25px Arial",
       fill: "#000000",
-    })
-
-    this.textTime= this.add.text(10, 10, "Remaining Time: 00", {
+    });
+  
+    this.textTime = this.add.text(10, 10, "Remaining Time: 00", {
       font: "25px Arial",
       fill: "#000000",
-    })
-
-    this.timedEvent = this.time.delayedCall(30000, this.gameOver,[], this)
-
-    this.emitter = this.add.particles(0,0, "devil", {
-      speed:100,
-      gravityY: speedDown-200,
+    });
+  
+    this.timedEvent = this.time.delayedCall(30000, this.gameOver, [], this);
+  
+    this.emitter = this.add.particles(0, 0, "devil", {
+      speed: 100,
+      gravityY: speedDown - 200,
       scale: 0.07,
       duration: 100,
-      emitting: false
-    }) 
-    this.emitter.startFollow(this.player, this.player.width/2, this.player.height/2, true)
-
-
+      emitting: false,
+    });
+    this.emitter.startFollow(this.player, this.player.width / 2, this.player.height / 2, true);
   }
   update(){
     this.remainingTime=this.timedEvent.getRemainingSeconds()
