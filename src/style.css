@@ -159,11 +159,13 @@ html, body {
   .mobile-controls button{
     display: none;
   } 
+  #footerRes{display: none;}
 }
 
 @media (max-width: 576px){
-  body{max-width: 100%; margin: 0;}
+  body{max-width: 100%; margin: 0; display: flex; flex-direction: column;}
   .mobile-controls button{
     display: flex;
   } 
+    #footerRes{display: flex;}
 }
