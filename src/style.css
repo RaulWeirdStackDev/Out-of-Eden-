@@ -117,7 +117,8 @@ main {
   background-color: var(--dkCLR);
 }
 
-#videoCont p {font-size: 20px;}
+#videoCont p {font-size: 20px;
+font-family: monospace;}
 
 #videoCont video {
   max-width: 100%;
