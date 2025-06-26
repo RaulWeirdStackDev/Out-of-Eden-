@@ -183,10 +183,12 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
+game.scene.pause("scene-game");
 
 gameStartBtn.addEventListener("click", () => {
   gameStartDiv.style.display = "none";
   gameCanvas.style.display = "block";
   mobileControls.style.display = "flex";
-  game.scene.resume("scene-game");
+  game.scene.stop("scene-game");
+  game.scene.start("scene-game");
 });
