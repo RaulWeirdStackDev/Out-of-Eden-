@@ -14,6 +14,8 @@ const mobileControls = document.getElementById("mobileControls");
 const leftBtn = document.getElementById("leftBtn");
 const rightBtn = document.getElementById("rightBtn");
 const footerRes = document.querySelector('#footerRes')
+const playAgainBtn = document.getElementById("playAgainBtn");
+
 
 let moveLeft = false;
 let moveRight = false;
@@ -192,3 +194,12 @@ gameStartBtn.addEventListener("click", () => {
   game.scene.stop("scene-game");
   game.scene.start("scene-game");
 });
+
+playAgainBtn.addEventListener("click", () => {
+  gameEndDiv.style.display = "none";
+  gameCanvas.style.display = "block";
+  mobileControls.style.display = "flex";
+  game.scene.stop("scene-game");
+  game.scene.start("scene-game");
+});
+
