@@ -17,10 +17,26 @@ const rightBtn = document.getElementById("rightBtn");
 let moveLeft = false;
 let moveRight = false;
 
-leftBtn.addEventListener("touchstart", () => (moveLeft = true));
-leftBtn.addEventListener("touchend", () => (moveLeft = false));
-rightBtn.addEventListener("touchstart", () => (moveRight = true));
-rightBtn.addEventListener("touchend", () => (moveRight = false));
+leftBtn.addEventListener("touchstart", e => {
+  e.preventDefault();
+  moveLeft = true;
+}, { passive: false });
+
+leftBtn.addEventListener("touchend", e => {
+  e.preventDefault();
+  moveLeft = false;
+}, { passive: false });
+
+rightBtn.addEventListener("touchstart", e => {
+  e.preventDefault();
+  moveRight = true;
+}, { passive: false });
+
+rightBtn.addEventListener("touchend", e => {
+  e.preventDefault();
+  moveRight = false;
+}, { passive: false });
+
 
 const gameEndDiv = document.querySelector("#endGameDiv");
 const gameWinLoseSpan = document.querySelector("#gameWinLoseSpan");
