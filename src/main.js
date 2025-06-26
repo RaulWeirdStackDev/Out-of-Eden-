@@ -153,7 +153,7 @@ class GameScene extends Phaser.Scene {
   }
 
   gameOver() {
-    this.sys.game.destroy(true);
+    this.scene.pause();
     mobileControls.style.display = "none";
     footerRes.style.display= "none";
     if (this.points >= 10) {
