@@ -13,6 +13,7 @@ const gameStartBtn = document.querySelector("#gameStartButton");
 const mobileControls = document.getElementById("mobileControls");
 const leftBtn = document.getElementById("leftBtn");
 const rightBtn = document.getElementById("rightBtn");
+const footerRes = document.querySelector('#footerRes')
 
 let moveLeft = false;
 let moveRight = false;
@@ -152,6 +153,7 @@ class GameScene extends Phaser.Scene {
   gameOver() {
     this.sys.game.destroy(true);
     mobileControls.style.display = "none";
+    footerRes.style.display= "none";
     if (this.points >= 10) {
       gameEndScoreSpan.textContent = this.points;
       gameWinLoseSpan.textContent =
