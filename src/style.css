@@ -47,7 +47,7 @@ main {
   position: relative; /* Mejor que absolute para evitar desbordes */
   margin: 0 auto;
   display: none;
-  border: 1px solid red;
+  border: 1px solid black;
   z-index: 1;
 }
 
