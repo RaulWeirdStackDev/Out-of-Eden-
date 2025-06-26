@@ -69,6 +69,7 @@ class GameScene extends Phaser.Scene {
     this.load.audio("bgMusic", "bgMusic.mp3");
   }
   create() {
+    this.points = 0;
     this.bgMusic = this.sound.add("bgMusic");
     this.add.image(0, 0, "bg").setOrigin(0, 0);
 
