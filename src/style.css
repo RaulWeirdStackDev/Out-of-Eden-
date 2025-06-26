@@ -116,3 +116,40 @@ main {
 }
 
 #videoCont p {font-size: 20px;}
+
+.mobile-controls {
+  position: absolute;
+  bottom: 10vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  z-index: 10;
+  display: none; /* Oculto por defecto */
+}
+
+.mobile-controls button {
+  background-color: var(--accClr);
+  color: white;
+  border: 2px solid white;
+  padding: 20px 30px;
+  font-size: 24px;
+  border-radius: 10px;
+}
+.mobile-controls button:active {
+  background-color: var(--liClr);
+  color: var(--accClr);
+}
+
+@media (min-width: 576px){
+  .mobile-controls button{
+    display: none;
+  } 
+}
+
+@media (max-width: 576px){
+  body{max-width: 100%; margin: 0;}
+  .mobile-controls button{
+    display: flex;
+  } 
+}
