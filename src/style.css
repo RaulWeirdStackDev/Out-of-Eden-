@@ -121,7 +121,7 @@ main {
 
 .mobile-controls {
   position: absolute;
-  bottom: 10vh;
+  bottom: 5vh;
   width: 100%;
   display: flex;
   justify-content: center;
