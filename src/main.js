@@ -153,17 +153,17 @@ class GameScene extends Phaser.Scene {
   }
 
   gameOver() {
-    this.scene.pause();
+    this.scene.stop();
     mobileControls.style.display = "none";
     footerRes.style.display= "none";
-    if (this.points >= 10) {
+    if (this.points >= 19) {
       gameEndScoreSpan.textContent = this.points;
       gameWinLoseSpan.textContent =
-        "Win! Adam and Eve have to leave Eden 😈🔥!";
+        "You Win! Adam and Eve have to leave Eden 😈🔥!";
     } else {
       gameEndScoreSpan.textContent = this.points;
       gameWinLoseSpan.textContent =
-        "Lose! Adam and Eve can stay happily in Eden 😭😪!";
+        "You Lose! Adam and Eve can stay happily in Eden 😭😪!";
     }
     gameEndDiv.style.display = "flex";
   }
