@@ -52,7 +52,7 @@ main {
 }
 
 .gameUI {
-    width: 100%;
+    width: inherit;
     height: 100vh; /* Ocupar toda la pantalla */
     padding: 10px; /* Evitar que el contenido se pegue demasiado a los bordes */
     box-sizing: border-box;
@@ -118,6 +118,14 @@ main {
 }
 
 #videoCont p {font-size: 20px;}
+
+#videoCont video {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 
 .mobile-controls {
   position: absolute;
