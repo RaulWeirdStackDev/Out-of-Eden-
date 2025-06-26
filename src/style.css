@@ -52,7 +52,7 @@ main {
 }
 
 .gameUI {
-    width: inherit;
+    width: 98vw;
     height: 100vh; /* Ocupar toda la pantalla */
     padding: 10px; /* Evitar que el contenido se pegue demasiado a los bordes */
     box-sizing: border-box;
@@ -128,8 +128,8 @@ main {
 
 
 .mobile-controls {
-  position: absolute;
-  bottom: 5vh;
+  position: fixed;
+  bottom: 2vh;
   width: 100%;
   display: flex;
   justify-content: center;
