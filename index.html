@@ -16,7 +16,7 @@
     <main>
       <canvas id="gameCanvas"></canvas>
       <div id="startGameDiv" class="gameUI">
-        <p>You have 30 seconds to catch Apples 🍎 for Eve 👩 and Adam 🧑.</p>
+        <p>🐍Level 1: You have 30 seconds to catch Apples 🍎 for Eve 👩 and Adam 🧑.</p>
         <div id="videoCont">
         <video src="/gameplayOoE.mp4" autoplay loop></video>
         <p>Use the arrow keys (← and →) to move the snake.</p>
@@ -31,17 +31,31 @@
         <p>Game Over!</p>
         <h1> <span id="gameWinLoseSpan"></span></h1>
         <h1>Final Score: <span id="gameEndScoreSpan"></span></h1>
-        <img src="/expelled.jpg" alt="">
+        <img src="/arkEscape.jpeg" alt="">
         <button id="playAgainBtn">Play Again? 😈🔥</button>
       </div>
-<div id="mobileControls" class="mobile-controls">
-  <button id="leftBtn">←</button>
-  <button id="rightBtn">→</button>
+<div id="transitionDiv" class="gameUI" style="display: none;">
+  <h2>Yey! Adam and Eve were expelled of Eden! 🍎🌿</h2>
+</div>
+<div id="noahInstructions" class="gameUI" style="display: none;">
+  <h2>🌧️ Level 2: Rescue the animals 🐾</h2>
+  <p>Avoid Noah and his wicked family 👨🏻‍🦳👩🏻‍🦳 while rescuing 10 animals from the Ark</p>
+  <p>The animals will follow you!</p>
+  <p>Use the controllers to move around the Ark, and don't crash against the walls!</p>
+  <button id="startNoahBtn">Start</button>
+</div>
+    </main>
+    <div id="mobileControls">
+  <div id="dpad">
+    <button id="upBtn">↑</button>
+    <div>
+      <button id="leftBtn">←</button>
+      <button id="rightBtn">→</button>
+    </div>
+    <button id="downBtn">↓</button>
+  </div>
 </div>
 
-
-
-    </main>
     <footer>
       <p>Created by Raúl Rodríguez 2025</p>
     </footer>
