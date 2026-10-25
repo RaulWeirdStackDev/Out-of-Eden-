@@ -271,9 +271,6 @@ main {
     display: flex;
     flex-direction: column;
   }
-  .mobile-controls button {
-    display: flex;
-  }
   #footerRes {
     display: block !important; /* Asegurar que se vea en móvil también */
     font-size: 10px !important; /* Más pequeño en móvil */
