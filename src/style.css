@@ -151,13 +151,13 @@ main {
 #mobileControls {
   display: none;
   justify-content: center;
-  position: absolute;
-  bottom: 60px; /* Más arriba para que no tape el footer */
+  position: fixed;
+  bottom: calc(65px + env(safe-area-inset-bottom, 0px));
   left: 50%;
   transform: translateX(-50%);
-  z-index: 100; /* Por debajo del footer pero visible */
+  z-index: 100;
+  touch-action: none;
 }
-
 #dpad {
   display: flex;
   flex-direction: column;
@@ -236,21 +236,20 @@ main {
 }
 
 #footerRes {
-  position: fixed !important; /* Forzar la posición */
-  bottom: 10px !important; /* Más margen desde abajo */
-  left: 50% !important;
-  transform: translateX(-50%) !important;
-  padding: 8px 12px !important;
-  font-size: 12px !important; /* Más grande para ver mejor */
-  background-color: var(--accClr) !important; /* Color más visible */
-  color: var(--liClr) !important;
-  border: 1px solid var(--liClr) !important; /* Borde para que sea más visible */
-  border-radius: 5px !important;
-  z-index: 999 !important; /* Z-index muy alto */
-  display: block !important; /* Asegurar que se muestre */
-  width: auto !important;
-  min-width: 200px !important;
-  text-align: center !important;
+  position: fixed;
+  bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 5px 8px;
+  font-size: 10px;
+  background-color: var(--accClr);
+  color: var(--liClr);
+  border: 1px solid var(--liClr);
+  border-radius: 5px;
+  z-index: 90;
+  display: block;
+  min-width: 200px;
+  text-align: center;
 }
 
 @media (min-width: 576px) {
@@ -287,5 +286,16 @@ main {
   
   #videoCont p {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 576px) {
+  html,
+  body {
+    height: 100%;
+    height: 100dvh;
+    min-height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
   }
 }
