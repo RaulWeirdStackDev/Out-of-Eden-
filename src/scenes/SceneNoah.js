@@ -30,7 +30,10 @@ export class SceneNoah extends Phaser.Scene {
   }
 
   create() {
-    this.add.image(0, 0, "bgNoah").setOrigin(0, 0);
+      this.puntos = 0;
+  this.seguidores = [];
+
+  this.add.image(0, 0, "bgNoah").setOrigin(0, 0);
     this.jugador = this.add.text(250, 250, Phaser.Utils.Array.GetRandom(this.animales), {
       fontSize: "32px"
     });
