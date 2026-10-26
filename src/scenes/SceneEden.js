@@ -117,28 +117,12 @@ export class SceneEden extends Phaser.Scene {
     this.scene.stop();
 
     if (this.points >= 15) {
-      // Mostrar pantalla de transición antes de iniciar la escena de Noé
-      gameCanvas.style.display = "none";
-      mobileControls.style.display = "none";
-      footerRes.style.display = "none";
-      const transitionDiv = document.getElementById("transitionDiv");
-      transitionDiv.style.display = "flex";
-
-      // Luego de 3 segundos, pasar a la escena de Noé
-      setTimeout(() => {
-        transitionDiv.style.display = "none";
-        document.getElementById("noahInstructions").style.display = "flex";
-
-        // Mostrar la cruceta (arriba, abajo, izquierda, derecha)
-        document.getElementById("upBtn").style.display = "inline-block";
-        document.getElementById("downBtn").style.display = "inline-block";
-
-        // Ocultar los botones laterales (de la etapa del Edén)
-        document.getElementById("leftBtn").style.display = "none";
-        document.getElementById("rightBtn").style.display = "none";
-        this.scene.start("scene-noah");
-        setCurrentScene("scene-noah"); // Actualizar la escena actual
-      }, 3000);
+      // Show the intermediate victory illustration until the player continues.
+      document.getElementById("gameCanvas").style.display = "none";
+      document.getElementById("mobileControls").style.display = "none";
+      document.getElementById("footerRes").style.display = "none";
+      document.getElementById("edenVictoryScore").textContent = this.points;
+      document.getElementById("transitionDiv").style.display = "flex";
     } else {
       // Si no ganó, mostrar pantalla de derrota
       gameEndScoreSpan.textContent = this.points;

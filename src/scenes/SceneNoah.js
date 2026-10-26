@@ -172,7 +172,8 @@ export class SceneNoah extends Phaser.Scene {
       gameCanvas.style.display = "none";
       mobileControls.style.display = "none";
       footerRes.style.display = "none";
-      document.getElementById("goliathInstructions").style.display = "flex";
+      document.getElementById("noahVictoryScore").textContent = this.puntos;
+      document.getElementById("noahVictoryDiv").style.display = "flex";
       return;
     }
 
@@ -196,6 +197,12 @@ export class SceneNoah extends Phaser.Scene {
     mobileControls.style.display = "none";
     footerRes.style.display = "none";
 
+    const resultImage = gameEndDiv.querySelector("img");
+    if (resultImage) {
+      resultImage.src = "/arkEscape.jpeg";
+      resultImage.alt = "Animals and Noah's Ark";
+      resultImage.style.display = "block";
+    }
     gameWinLoseSpan.textContent = message;
     gameEndScoreSpan.textContent = this.puntos;
   }

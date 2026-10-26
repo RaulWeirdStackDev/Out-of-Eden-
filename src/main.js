@@ -22,6 +22,8 @@ const downBtn = document.getElementById("downBtn");
 const footerRes = document.querySelector("#footerRes");
 const playAgainBtn = document.getElementById("playAgainBtn");
 const startNoahBtn = document.getElementById("startNoahBtn");
+const continueEdenBtn = document.getElementById("continueEdenBtn");
+const continueNoahBtn = document.getElementById("continueNoahBtn");
 const startGoliathBtn = document.getElementById("startGoliathBtn");
 
 leftBtn.addEventListener(
@@ -157,6 +159,16 @@ playAgainBtn.addEventListener("click", () => {
   mostrarControlesHorizontales();
 });
 
+
+continueEdenBtn.addEventListener("click", () => {
+  document.getElementById("transitionDiv").style.display = "none";
+  document.getElementById("noahInstructions").style.display = "flex";
+});
+
+continueNoahBtn.addEventListener("click", () => {
+  document.getElementById("noahVictoryDiv").style.display = "none";
+  document.getElementById("goliathInstructions").style.display = "flex";
+});
 
 startNoahBtn.addEventListener("click", () => {
   document.getElementById("noahInstructions").style.display = "none";
