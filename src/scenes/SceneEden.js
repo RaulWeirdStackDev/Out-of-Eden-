@@ -16,7 +16,7 @@ export class SceneEden extends Phaser.Scene {
     this.textTime;
     this.timedEvent;
     this.remainingTime;
-    this.bgMusic;
+
   }
 
   preload() {
@@ -25,11 +25,9 @@ export class SceneEden extends Phaser.Scene {
     this.load.image("apple", "apple.png");
     this.load.image("devil", "devil.png");
 
-    this.load.audio("bgMusic", "bgMusic.mp3");
   }
   create() {
     this.points = 0;
-    this.bgMusic = this.sound.add("bgMusic");
     this.add.image(0, 0, "bg").setOrigin(0, 0);
 
     this.player = this.physics.add
