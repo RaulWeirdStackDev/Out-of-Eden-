@@ -88,19 +88,29 @@ export class SceneGoliath extends Phaser.Scene {
   }
 
   derrota() {
-    this.finish("🥶 David got Goliath! One stone was enough.");
+    this.finish("🥶 David got Goliath! So unfair!.", "goliathDefeat.png");
   }
 
   victoria() {
-    this.finish("💪 Goliath reached David! History needs a rewrite.");
+    this.finish("💪 That little rascal of David got what he deserved!", "goliathVictory.png");
   }
 
-  finish(message) {
+  finish(message, imageFile) {
     if (this.finished) return;
     this.finished = true;
     this.physics.pause();
     this.scene.pause();
     document.getElementById("gameWinLoseSpan").textContent = message;
+    // Reuse the existing end-screen illustration without changing the HTML.
+    const endScreen = document.getElementById("endGameDiv");
+    const resultImage = endScreen?.querySelector("img");
+    if (resultImage) {
+      resultImage.src = `/${imageFile}`;
+      resultImage.alt = imageFile === "goliathVictory.png"
+        ? "Goliath triumphs over a frightened David"
+        : "David celebrates while Goliath lies defeated";
+      resultImage.style.display = "block";
+    }
     document.getElementById("gameEndScoreSpan").textContent = `${Math.floor(Math.min(this.elapsed, SURVIVE_SECONDS))}s`;
     document.getElementById("endGameDiv").style.display = "flex";
     document.getElementById("gameCanvas").style.display = "none";
