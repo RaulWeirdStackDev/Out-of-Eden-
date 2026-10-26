@@ -9,7 +9,7 @@ export class SceneEden extends Phaser.Scene {
     super("scene-eden");
     this.player;
     this.cursor;
-    this.playerSpeed = speedDown + 50;
+    this.playerSpeed = 250;
     this.target;
     this.points = 0;
     this.textScore;
@@ -103,14 +103,21 @@ export class SceneEden extends Phaser.Scene {
   getRandomX() {
     return Math.floor(Math.random() * 480);
   }
+targetHit() {
+  // Evitar múltiples detecciones de la misma manzana
+  this.target.body.enable = false;
 
-  targetHit() {
-    this.emitter.start();
-    this.target.setY(0);
-    this.target.setX(this.getRandomX());
-    this.points++;
-    this.textScore.setText(`Score: ${this.points}`);
-  }
+  this.emitter.start();
+
+  this.points++;
+  this.textScore.setText(`Score: ${this.points}`);
+
+  // Reubicar la manzana
+  this.target.setPosition(this.getRandomX(), 0);
+
+  // Reactivar colisiones
+  this.target.body.enable = true;
+}
 
   gameOver() {
     setCurrentScene("scene-eden");
