@@ -18,9 +18,9 @@ export class SceneGoliath extends Phaser.Scene {
   }
 
   preload() {
-    this.load.image("bgGoliath", "bg_goliath.png");
-    this.load.image("piedra", "piedra.png");
-    this.load.image("goliath", "goliath.png");
+    this.load.image("bgGoliath", "bg_goliath.webp");
+    this.load.image("piedra", "piedra.webp");
+    this.load.image("goliath", "goliath.webp");
   }
 
   create() {
@@ -118,13 +118,13 @@ export class SceneGoliath extends Phaser.Scene {
   }
 
   derrota() {
-    this.finish("🥶 David got Goliath! So unfair!.", "goliathDefeat.png");
+    this.finish("🥶 David got Goliath! So unfair!.", "goliathDefeat.webp");
   }
 
   victoria() {
     this.finish(
       "💪 That little rascal of David got what he",
-      "goliathVictory.png",
+      "goliathVictory.webp",
     );
   }
 
