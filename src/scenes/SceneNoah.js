@@ -168,6 +168,14 @@ export class SceneNoah extends Phaser.Scene {
   gameOver(win = false) {
     this.scene.pause();
 
+    if (win) {
+      gameCanvas.style.display = "none";
+      mobileControls.style.display = "none";
+      footerRes.style.display = "none";
+      document.getElementById("goliathInstructions").style.display = "flex";
+      return;
+    }
+
     let message = win
       ? "🎉 Now you can enjoy the Great Flood! 🌧"
       : "😡 Noah and his wicked family forced you to stay in the Ark!";

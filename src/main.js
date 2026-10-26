@@ -2,6 +2,7 @@ import "./style.css";
 import Phaser from "phaser";
 import { SceneEden } from "./scenes/SceneEden";
 import { SceneNoah } from "./scenes/SceneNoah";
+import { SceneGoliath } from "./scenes/SceneGoliath";
 import { sizes, speedDown } from "./utils/constants.js";
 import { getCurrentScene, setCurrentScene } from "./utils/gameState.js";
 import {
@@ -21,6 +22,7 @@ const downBtn = document.getElementById("downBtn");
 const footerRes = document.querySelector("#footerRes");
 const playAgainBtn = document.getElementById("playAgainBtn");
 const startNoahBtn = document.getElementById("startNoahBtn");
+const startGoliathBtn = document.getElementById("startGoliathBtn");
 
 leftBtn.addEventListener(
   "touchstart",
@@ -124,7 +126,7 @@ const config = {
       debug: false,
     },
   },
-  scene: [SceneEden, SceneNoah],
+  scene: [SceneEden, SceneNoah, SceneGoliath],
 };
 
 const game = new Phaser.Game(config);
@@ -149,17 +151,10 @@ playAgainBtn.addEventListener("click", () => {
   mobileControls.style.display = "flex";
   footerRes.style.display = "flex";
 
-  if (getCurrentScene() === "scene-noah") {
-    game.scene.stop("scene-noah");
-    game.scene.start("scene-eden");
-    setCurrentScene("scene-eden");
-    mostrarControlesHorizontales(); // Aquí para Edén (porque reinicias a Eden)
-  } else {
-    game.scene.stop("scene-eden");
-    game.scene.start("scene-eden");
-    setCurrentScene("scene-eden");
-    mostrarControlesHorizontales(); // Aquí también para Edén
-  }
+  game.scene.stop(getCurrentScene());
+  game.scene.start("scene-eden");
+  setCurrentScene("scene-eden");
+  mostrarControlesHorizontales();
 });
 
 
@@ -172,4 +167,17 @@ startNoahBtn.addEventListener("click", () => {
   game.scene.stop("scene-eden");
   game.scene.start("scene-noah");
   setCurrentScene("scene-noah");
+});
+
+
+startGoliathBtn.addEventListener("click", () => {
+  document.getElementById("goliathInstructions").style.display = "none";
+  gameEndDiv.style.display = "none";
+  gameCanvas.style.display = "block";
+  mobileControls.style.display = "flex";
+  footerRes.style.display = "flex";
+  mostrarControlesHorizontales();
+  game.scene.stop("scene-noah");
+  game.scene.start("scene-goliath");
+  setCurrentScene("scene-goliath");
 });
