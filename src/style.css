@@ -296,3 +296,36 @@ main {
     overflow: hidden;
   }
 }
+
+#endGameDiv img {
+  width: 500px;
+  max-width: 85vw;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  #endGameDiv img {
+    width: 340px;
+    max-width: 85vw;
+  }
+}
+
+#endGameDiv img,
+#transitionDiv img,
+#noahVictoryDiv img {
+  width: 500px;
+  max-width: 85vw;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  #endGameDiv img,
+  #transitionDiv img,
+  #noahVictoryDiv img {
+    width: 350px;
+  }
+}

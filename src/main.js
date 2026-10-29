@@ -3,6 +3,7 @@ import Phaser from "phaser";
 import { SceneEden } from "./scenes/SceneEden";
 import { SceneNoah } from "./scenes/SceneNoah";
 import { SceneGoliath } from "./scenes/SceneGoliath";
+import { SceneDaniel } from "./scenes/SceneDaniel";
 import { sizes, speedDown } from "./utils/constants.js";
 import { getCurrentScene, setCurrentScene } from "./utils/gameState.js";
 import {
@@ -128,7 +129,7 @@ const config = {
       debug: false,
     },
   },
-  scene: [SceneEden, SceneNoah, SceneGoliath],
+  scene: [SceneEden, SceneNoah, SceneGoliath, SceneDaniel],
 };
 
 const game = new Phaser.Game(config);

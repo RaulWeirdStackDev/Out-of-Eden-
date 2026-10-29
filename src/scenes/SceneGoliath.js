@@ -4,7 +4,7 @@ import { setCurrentScene } from "../utils/gameState.js";
 
 const WIDTH = 500;
 const HEIGHT = 500;
-const SURVIVE_SECONDS = 70;
+const SURVIVE_SECONDS = 55;
 // Goliath moves forward in visible steps, rather than staying at the bottom.
 const ADVANCE_STEPS = [
   { progress: 0.25, y: 385 },
@@ -91,15 +91,15 @@ export class SceneGoliath extends Phaser.Scene {
     const direction =
       Number(this.cursor.right.isDown || getMoveRight()) -
       Number(this.cursor.left.isDown || getMoveLeft());
-    this.goliat.setVelocityX(direction * 270);
+    this.goliat.setVelocityX(direction * 300);
     this.goliat.setVelocityY(0);
 
     // Difficulty increases smoothly as Goliath approaches David.
-    const interval = 950 - progress * 650;
+    const interval = 1800 - progress * 650;
     this.spawnElapsed += dt * 1000;
     while (this.spawnElapsed >= interval) {
       this.spawnElapsed -= interval;
-      this.spawnPiedra(150 + progress * 300);
+      this.spawnPiedra(30 + progress * 190);
     }
     this.piedras.children.iterate((stone) => {
       if (stone && stone.active && stone.y > HEIGHT + 35) stone.destroy();
@@ -112,7 +112,7 @@ export class SceneGoliath extends Phaser.Scene {
       -25,
       "piedra",
     );
-    stone.setDisplaySize(35, 35);
+    stone.setDisplaySize(30, 30);
     stone.body.setAllowGravity(false);
     stone.setVelocityY(speed);
   }
@@ -123,7 +123,7 @@ export class SceneGoliath extends Phaser.Scene {
 
   victoria() {
     this.finish(
-      "💪 That little rascal of David got what he",
+      "💪 That little rascal of David got what he deserved",
       "goliathVictory.webp",
     );
   }
@@ -140,13 +140,38 @@ export class SceneGoliath extends Phaser.Scene {
     if (resultImage) {
       resultImage.src = `/${imageFile}`;
       resultImage.alt =
-        imageFile === "goliathVictory.png"
+        imageFile === "goliathVictory.webp"
           ? "Goliath triumphs over a frightened David"
           : "David celebrates while Goliath lies defeated";
       resultImage.style.display = "block";
     }
     document.getElementById("gameEndScoreSpan").textContent =
       `${Math.floor(Math.min(this.elapsed, SURVIVE_SECONDS))}s`;
+    // Victory advances to Daniel; defeat retains the usual Play Again flow.
+    const won = imageFile === "goliathVictory.webp";
+    const playAgainButton = [...endScreen.querySelectorAll("button")]
+      .find((button) => /play again/i.test(button.textContent));
+    if (playAgainButton) playAgainButton.style.display = won ? "none" : "";
+
+    let continueButton = document.getElementById("continueToDanielBtn");
+    if (!continueButton) {
+      continueButton = document.createElement("button");
+      continueButton.id = "continueToDanielBtn";
+      continueButton.textContent = "Continue to Daniel 🦁";
+      continueButton.style.cssText =
+        "display:block;margin:12px auto;padding:12px 20px;background:#ff4500;color:white;border:0;border-radius:8px;font-weight:bold;cursor:pointer";
+      endScreen.appendChild(continueButton);
+    }
+    continueButton.style.display = won ? "block" : "none";
+    continueButton.onclick = () => {
+      endScreen.style.display = "none";
+      document.getElementById("gameCanvas").style.display = "block";
+      document.getElementById("mobileControls").style.display = "flex";
+      document.getElementById("footerRes").style.display = "flex";
+      this.scene.stop("scene-goliath");
+      this.scene.start("scene-daniel");
+      setCurrentScene("scene-daniel");
+    };
     document.getElementById("endGameDiv").style.display = "flex";
     document.getElementById("gameCanvas").style.display = "none";
     document.getElementById("mobileControls").style.display = "none";
