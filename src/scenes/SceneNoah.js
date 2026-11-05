@@ -202,7 +202,7 @@ export class SceneNoah extends Phaser.Scene {
 
     const resultImage = gameEndDiv.querySelector("img");
     if (resultImage) {
-      resultImage.src = "/arkEscape.jpeg";
+      resultImage.src = "/ark.png";
       resultImage.alt = "Animals and Noah's Ark";
       resultImage.style.display = "block";
     }
